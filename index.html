@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <style>
+        body{
+            background-color:lightseagreen ;
+        }
+        .card {
+            border: 20px double black;
+            border-radius: 15px;
+            padding: 10px;
+            font-family: cursive;
+            color: darkblue;
+        }
+        .card-img {
+            display: block;
+            margin: 10px auto;
+        }
+        .card-heading {
+            font-size: 40px;
+            color: darkred;
+            font-family: cursive;
+            text-align: center;
+        }
+        .quantity-btn-container {
+            display: flex;
+            font-size: 60px;
+            color: rgb(28, 17, 1);
+            justify-content: space-around;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <img src="cake.png" alt="" height="100px" class="card-img">
+        <h1 class="card-heading">Cake</h1>
+
+        <div class="quantity-btn-container">
+            <button type="button" onclick="ChangeQuantity('dec')">
+                -
+            </button>
+            <span id="quantity">1</span>
+            <button type="button" onclick="ChangeQuantity('inc')">
+                +
+            </button>
+        </div>
+    </div>
+
+    <script>
+
+        const quantityElement = document.getElementById("quantity");
+        let quantity = parseInt(quantityElement.innerText);
+
+        function ChangeQuantity(op) {
+
+            if (quantity == 1 && op == "dec")
+            return
+
+            if (quantity == 10 && op == "inc")
+            return
+
+            if (op === 'inc')
+                ++quantity;
+
+            if (op === 'dec')
+                --quantity;
+            quantityElement.innerText = quantity;
+        }
+    </script>
+</body>
+</html>
